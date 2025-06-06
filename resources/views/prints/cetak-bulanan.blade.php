@@ -16,7 +16,7 @@
     <h1 class="text-2xl font-bold mb-4">Laporan Kehadiran Bulanan</h1>
     <p class="mb-6">Bulan: <strong>{{ $bulanTahun }}</strong></p>
 
-    <button onclick="window.print()" class="no-print mb-4 px-4 py-2 bg-blue-600 text-white rounded">Cetak</button>
+    <button onclick="window.print()" class="no-print mb-4 px-4 py-2 bg-amber-500 text-white rounded">Print</button>
 
     <table class="w-full border-collapse border border-gray-300 text-sm">
       <thead>

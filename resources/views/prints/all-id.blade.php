@@ -79,9 +79,9 @@
           <p class="text-gray-600">Dicetak pada: {{ date('d F Y H:i') }}</p>
         </div>
         <div class="flex gap-2 no-print">
-          <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
+          <button onclick="window.print()" class="bg-amber-500 text-white font-medium py-2 px-4 rounded-lg transition duration-300 flex items-center gap-2">
             <i class="fas fa-print"></i>
-            Cetak Semua
+            Print
           </button>
         </div>
       </div>

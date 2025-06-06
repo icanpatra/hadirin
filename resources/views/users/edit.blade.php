@@ -38,7 +38,7 @@
           </svg>
         </a>
         <h1 class="text-lg sm:text-xl font-bold text-gray-800">
-          Edit Data User
+          Edit Data Anggota
         </h1>
       </div>
     </div>
@@ -48,10 +48,10 @@
     <!-- Main Card -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
       <!-- Card Header -->
-      <div class="px-6 py-4 border-b bg-gradient-to-r from-blue-600 to-blue-700">
+      <div class="px-6 py-4 border-b bg-amber-500">
         <div class="flex items-center justify-between">
           <h2 class="text-lg font-semibold text-white">
-            <i class="fas fa-user-edit mr-2"></i>Form Edit User
+            <i class="fas fa-user-edit mr-2"></i>
           </h2>
           <span class="text-blue-100 text-sm">
             ID: {{ $user->id }}
@@ -178,7 +178,7 @@
             </a>
             <button 
               type="submit"
-              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               <i class="fas fa-save mr-2"></i> Simpan Perubahan
             </button>

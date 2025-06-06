@@ -40,7 +40,7 @@
       <div class="flex justify-between items-center">
         <a href="{{ route('events.index') }}" class="text-gray-600 hover:underline">Batal</a>
         <button type="submit" 
-                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Simpan</button>
+                class="bg-amber-500 text-white px-4 py-2 roundedtransition">Simpan</button>
       </div>
     </form>
   </div>

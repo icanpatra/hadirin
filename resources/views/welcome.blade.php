@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sistem Pengelola Kehadiran SMKN 1 Kota Bengkulu">
+  <meta name="description" content="Sistem Pengelola Kehadiran Digital Sekolah">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         fontFamily: {
-          sans: ['Poppins', 'sans-serif'],
+          sans: ['Nunito', 'sans-serif'],
         },
         extend: {
           colors: {
             primary: {
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
+              500: '#CA7842',
+              600: '#B86A3A',
+              700: '#A65C32',
             },
             secondary: {
-              400: '#fbbf24',
+              500: '#6B7280',
+              600: '#4B5563',
+            },
+            accent: {
+              500: '#EAB308',
+              600: '#CA8A04',
             }
-          },
-          boxShadow: {
-            'card': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-            'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
           },
           animation: {
             'fade-in': 'fadeIn 0.3s ease-in-out',
@@ -49,264 +49,238 @@
     }
   </script>
   <script src="https://unpkg.com/feather-icons"></script>
-  <title>Hadirin - Sistem Kehadiran SMKN 1 Kota Bengkulu</title>
+  <title>AbsensiKu - Sistem Kehadiran Sekolah</title>
   <style>
-    @media (max-width: 640px) {
-      .header-height {
-        height: auto;
-        min-height: 18rem;
-      }
-      
-      .card-square {
-        aspect-ratio: 1/1;
-      }
-      
-      .card-rectangle {
-        aspect-ratio: 2/1;
-      }
-    }
-    
-    /* Improved card styling */
     .card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(229, 231, 235, 0.8);
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.98) 100%);
     }
     
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
     }
     
-    /* Improved tab button styling */
-    .tab-button {
-      transition: all 0.2s ease;
+    .nav-pill {
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
-    .tab-button:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .tab-button.active {
-      background-color: rgba(255, 255, 255, 0.2);
+    .nav-pill.active {
+      background: rgba(255, 255, 255, 0.25);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     
-    /* Improved decorative elements */
-    .decorative-circle {
+    .nav-pill:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .header-gradient {
+      background: linear-gradient(135deg, #CA7842 0%, #EAB308 100%);
+    }
+    
+    .blob {
       filter: blur(40px);
       opacity: 0.15;
     }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .card-icon {
+      background: linear-gradient(135deg, rgba(202, 120, 66, 0.1) 0%, rgba(234, 179, 8, 0.1) 100%);
+    }
+    
+    .card-icon:hover {
+      background: linear-gradient(135deg, rgba(202, 120, 66, 0.2) 0%, rgba(234, 179, 8, 0.2) 100%);
+    }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans min-h-screen antialiased">
+<body class="bg-gray-50 text-gray-800 min-h-screen antialiased">
 
-  <!-- Improved Header -->
-  <header class="w-full header-height rounded-b-3xl bg-gradient-to-br from-primary-700 to-primary-900 px-6 py-8 md:px-8 md:py-10 relative overflow-hidden">
-    <!-- Decorative elements - improved -->
+  <!-- Header -->
+  <header class="w-full header-gradient px-6 py-8 md:px-8 md:py-10 relative overflow-hidden">
+    <!-- Decorative blobs -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-      <div class="absolute top-10 left-20 w-32 h-32 rounded-full bg-white decorative-circle"></div>
-      <div class="absolute bottom-10 right-20 w-24 h-24 rounded-full bg-secondary-400 decorative-circle"></div>
-      <div class="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-white decorative-circle"></div>
+      <div class="absolute top-20 left-20 w-40 h-40 rounded-full bg-white blob"></div>
+      <div class="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-accent-500 blob"></div>
+      <div class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-white blob"></div>
     </div>
     
     <div class="relative z-10 max-w-6xl mx-auto">
-      <div class="flex justify-between items-start">
+      <div class="flex justify-between items-center">
         <div class="text-white font-bold text-xl flex items-center">
-          <i data-feather="clock" class="mr-2"></i>
-          HADIRIN
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-amber-100">HADIRIN</span>
         </div>
-        <div class="flex space-x-2">
-          <div class="w-4 h-4 bg-yellow-400 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 0.1s"></div>
           <div class="w-4 h-4 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.3s"></div>
         </div>
       </div>
 
-      <div class="text-white text-center mt-8 md:mt-10">
-        <div class="mx-auto w-24 h-24 md:w-28 md:h-28 bg-white bg-opacity-10 rounded-full p-4 shadow-md">
-          <img src="{{ asset('images/logo.png') }}" alt="Logo SMKN 1 Kota Bengkulu" class="w-full h-full object-contain" />
+      <div class="text-white text-center mt-12 md:mt-14">
+        <div class="mx-auto w-24 h-24 md:w-28 md:h-28 bg-white bg-opacity-20 rounded-2xl p-4 shadow-lg floating">
+          <img src="{{ asset('images/logo.png') }}" alt="Logo Sekolah" class="w-full h-full object-contain" />
         </div>
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mt-4">SMKN 1 Kota Bengkulu</h1>
-        <p class="text-lg md:text-xl text-blue-100 mt-2">Sistem Manajemen Kehadiran</p>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight mt-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-amber-100">SMKN 1 Kota Bengkulu</h1>
       </div>
 
-      <nav class="flex justify-center mt-8 md:mt-10 space-x-2 md:space-x-4">
-        <button id="b1" onclick="switchTab(1)" class="tab-button text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center">
-          <i data-feather="tool" class="mr-2 w-5 h-5"></i> Tools
+      <nav class="flex justify-center mt-10 md:mt-12 space-x-2 md:space-x-3">
+        <button onclick="switchTab(1)" class="nav-pill text-white font-medium px-5 py-2.5 rounded-full flex items-center">
+          <i data-feather="tool" class="mr-2 w-4 h-4"></i> Tools
         </button>
-        <button id="b2" onclick="switchTab(2)" class="tab-button text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center">
-          <i data-feather="printer" class="mr-2 w-5 h-5"></i> Cetak
+        <button onclick="switchTab(2)" class="nav-pill text-white font-medium px-5 py-2.5 rounded-full flex items-center">
+          <i data-feather="file-text" class="mr-2 w-4 h-4"></i> Prints
         </button>
-        <button id="b3" onclick="switchTab(3)" class="tab-button text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center">
-          <i data-feather="info" class="mr-2 w-5 h-5"></i> Informasi
+        <button onclick="switchTab(3)" class="nav-pill text-white font-medium px-5 py-2.5 rounded-full flex items-center">
+          <i data-feather="info" class="mr-2 w-4 h-4"></i> Infos
         </button>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content - Improved -->
-  <main class="px-4 py-8 md:px-8 md:py-12 max-w-6xl mx-auto transition-all duration-300">
+  <!-- Main Content -->
+  <main class="px-4 py-8 md:px-8 md:py-12 max-w-6xl mx-auto -mt-6">
 
-    <!-- Tools Tab - Improved -->
-    <div id="tab1" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 transition-opacity duration-300">
-      <!-- Card 1 - Improved -->
-      <a href="/users" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <img src="https://img.icons8.com/ios-filled/50/1e40af/add-user-group-man-man.png" class="w-8 h-8" alt="Input Anggota" />
+    <!-- Main Menu Tab -->
+    <div id="tab1" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+      <!-- Card 1 -->
+      <a href="/users" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-5 flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-2xl card-icon mb-4 flex items-center justify-center transition-colors">
+            <i data-feather="users" class="w-6 h-6 text-primary-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Input Anggota</h3>
-          <p class="text-xs text-gray-500 text-center">Tambah/edit data anggota</p>
+          <h3 class="font-semibold text-gray-800 mb-1">Input Anggota</h3>
         </div>
       </a>
       
-      <!-- Card 2 - Improved -->
-      <a href="/events" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <img src="https://img.icons8.com/ios-filled/50/1e40af/edit-calendar.png" class="w-8 h-8" alt="Input Kegiatan" />
+      <!-- Card 2 -->
+      <a href="/events" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-5 flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-2xl card-icon mb-4 flex items-center justify-center transition-colors">
+            <i data-feather="calendar" class="w-6 h-6 text-primary-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Input Kegiatan</h3>
-          <p class="text-xs text-gray-500 text-center">Kelola jadwal kegiatan</p>
+          <h3 class="font-semibold text-gray-800 mb-1">Input kegiatan</h3>
         </div>
       </a>
       
-      <!-- Card 3 - Improved -->
-      <a href="{{ route('generate.id.show') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxZTQwYWYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1pZC1jYXJkLWljb24gbHVjaWRlLWlkLWNhcmQiPjxwYXRoIGQ9Ik0xNiAxMGgyIi8+PHBhdGggZD0iTTE2IDE0aDIiLz48cGF0aCBkPSJNNi4xNyAxNWEzIDMgMCAwIDEgNS42NiAwIi8+PGNpcmNsZSBjeD0iOSIgY3k9IjExIiByPSIyIi8+PHJlY3QgeD0iMiIgeT0iNSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE0IiByeD0iMiIvPjwvc3ZnPg==" class="w-8 h-8" alt="Generate ID" />
+      <!-- Card 3 -->
+      <a href="{{ route('generate.id.show') }}" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-5 flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-2xl card-icon mb-4 flex items-center justify-center transition-colors">
+            <i data-feather="credit-card" class="w-6 h-6 text-primary-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Generate ID</h3>
-          <p class="text-xs text-gray-500 text-center">Buat kartu identitas</p>
+          <h3 class="font-semibold text-gray-800 mb-1">Generate ID Anggota</h3>
         </div>
       </a>
       
-      <!-- Card 4 - Improved -->
-      <a href="{{ route('scan.show') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <i data-feather="maximize" class="w-8 h-8 text-blue-800"></i>
+      <!-- Card 4 -->
+      <a href="{{ route('scan.show') }}" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-5 flex flex-col items-center text-center">
+          <div class="w-14 h-14 rounded-2xl card-icon mb-4 flex items-center justify-center transition-colors">
+            <i data-feather="maximize" class="w-6 h-6 text-primary-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Scan Kehadiran</h3>
-          <p class="text-xs text-gray-500 text-center">Scan QR code presensi</p>
+          <h3 class="font-semibold text-gray-800 mb-1">Scan Kehadiran</h3>
         </div>
       </a>
     </div>
 
-    <!-- Prints Tab - Improved -->
-    <div id="tab2" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 transition-opacity duration-300">
-      <!-- Rectangle Card 1 -->
-      <a href="{{ route('cetak.kehadiran.harian') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center justify-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <i data-feather="calendar" class="w-8 h-8 text-blue-800"></i>
+    <!-- Reports Tab -->
+    <div id="tab2" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Report Card 1 -->
+      <a href="{{ route('cetak.kehadiran.harian') }}" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-6 flex items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 mr-4 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+            <i data-feather="calendar" class="w-5 h-5 text-amber-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Cetak Kehadiran Harian</h3>
-          <p class="text-xs text-gray-500 text-center">Laporan kehadiran harian</p>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-1">Print kehadiran Harian</h3>
+          </div>
         </div>
       </a>
       
-      <!-- Rectangle Card 2 -->
-      <a href="{{ route('cetak.kehadiran.bulanan') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center justify-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <i data-feather="calendar" class="w-8 h-8 text-blue-800"></i>
+      <!-- Report Card 2 -->
+      <a href="{{ route('cetak.kehadiran.bulanan') }}" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-6 flex items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 mr-4 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+            <i data-feather="calendar" class="w-5 h-5 text-amber-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Cetak Kehadiran Bulanan</h3>
-          <p class="text-xs text-gray-500 text-center">Laporan kehadiran bulanan</p>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-1">Print Kehadiran Bulanan</h3>
+          </div>
         </div>
       </a>
       
-      <!-- Rectangle Card 3 -->
-      <a href="{{ route('print.all.id') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
-        <div class="h-full p-6 flex flex-col items-center justify-center">
-          <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
-            <img src="https://img.icons8.com/ios-filled/50/1e40af/print.png" class="w-8 h-8" alt="Print ID" />
+      <!-- Report Card 3 -->
+      <a href="{{ route('print.all.id') }}" class="card rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+        <div class="p-6 flex items-start">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 mr-4 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+            <i data-feather="credit-card" class="w-5 h-5 text-amber-600"></i>
           </div>
-          <h3 class="text-base font-semibold text-gray-800 mb-1 text-center">Cetak Semua ID</h3>
-          <p class="text-xs text-gray-500 text-center">Cetak semua kartu identitas</p>
+          <div>
+            <h3 class="font-semibold text-gray-800 mb-1">Print Seluruh ID Anggota</h3>
+            <p class="text-sm text-gray-500">Generate dan cetak semua kartu identitas</p>
+          </div>
         </div>
       </a>
     </div>
 
-    <!-- Info Tab - Improved -->
-    <div id="tab3" class="hidden transition-opacity duration-300 animate-fade-in">
-      <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
-        <div class="flex items-center mb-6">
-          <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mr-4">
-            <i data-feather="info" class="w-6 h-6 text-blue-800"></i>
-          </div>
-          <h2 class="text-2xl font-bold text-gray-800">Tentang Hadirin</h2>
-        </div>
-        
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <div class="w-3 h-3 rounded-full bg-blue-800"></div>
-            </div>
-            <p class="ml-4 text-gray-700">
-              <span class="font-semibold text-blue-800">Hadirin</span> merupakan sistem pengelola kehadiran digital untuk lingkungan sekolah yang dirancang dengan antarmuka modern dan intuitif.
-            </p>
-          </div>
-          
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <div class="w-3 h-3 rounded-full bg-blue-800"></div>
-            </div>
-            <p class="ml-4 text-gray-700">
-              Sistem ini memungkinkan pencatatan kehadiran yang efisien dengan fitur QR code scanning, manajemen anggota, dan pelaporan otomatis.
-            </p>
-          </div>
-          
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <div class="w-3 h-3 rounded-full bg-blue-800"></div>
-            </div>
-            <p class="ml-4 text-gray-700">
-              Dikembangkan oleh tim Guru Produktif Jurusan PPLG SMKN 1 Kota Bengkulu sebagai solusi digital untuk manajemen kehadiran yang lebih baik.
-            </p>
-          </div>
-          
-          <div class="pt-4 mt-4 border-t border-gray-100">
-            <div class="flex items-center text-sm text-gray-500">
-              <i data-feather="code" class="w-4 h-4 mr-2"></i>
-              <span>Versi 1.0.0 - © 2023 SMKN 1 Kota Bengkulu</span>
-            </div>
-          </div>
+    <!-- About Tab -->
+    <div id="tab3" class="hidden">
+      <div class="card rounded-xl shadow-md overflow-hidden border border-gray-200">
+        <div class="p-6 md:p-8">
+        <p class="font-bold">Hadirin merupakan sebuah sistem pengelola kehadiran dalam lingkungan sekolah.</p>
+        <br>
+        <p> Dengan desain minimalis dani sederhana, Hadirin mampu. mengakomodasi kebutuhan pencatatan kehadiran masyarakat sekolah dalam berbagai situasi.</p>
+        <br>
+        <p>          
+          Pengembangan sistem ini didukung sepenuhnya secara swadaya, sebagai produk Hibah dari Guru Produktif Jurusan PPLG SMKN 1 Kota Bengkulu.</p>
         </div>
       </div>
     </div>
   </main>
 
   <script>
-    function switchTab(id) {
+    // Tab switching functionality
+    function switchTab(tabNumber) {
       // Hide all tabs
-      for (let i = 1; i <= 3; i++) {
-        document.getElementById('tab' + i).classList.add('hidden');
-        document.getElementById('b' + i).classList.remove('active');
-      }
+      document.querySelectorAll('[id^="tab"]').forEach(tab => {
+        tab.classList.add('hidden');
+      });
       
       // Show selected tab
-      document.getElementById('tab' + id).classList.remove('hidden');
-      document.getElementById('b' + i).classList.add('active');
+      document.getElementById(`tab${tabNumber}`).classList.remove('hidden');
       
-      // Store selected tab in sessionStorage
-      sessionStorage.setItem('selectedTab', id);
+      // Update active nav button
+      document.querySelectorAll('nav button').forEach((btn, index) => {
+        if (index === tabNumber - 1) {
+          btn.classList.add('active');
+          btn.classList.remove('border-transparent');
+        } else {
+          btn.classList.remove('active');
+          btn.classList.add('border-transparent');
+        }
+      });
+      
+      // Store selected tab
+      localStorage.setItem('selectedTab', tabNumber);
     }
 
-    // Initialize feather icons
-    feather.replace();
-    
-    // Set initial tab from sessionStorage or default to 1
+    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      const selectedTab = sessionStorage.getItem('selectedTab') || 1;
-      switchTab(selectedTab);
+      // Initialize feather icons
+      feather.replace();
       
-      // Add animation delay to cards
-      const cards = document.querySelectorAll('[id^="tab"] a');
-      cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 50}ms`;
-      });
+      // Set initial tab from localStorage or default to 1
+      const selectedTab = localStorage.getItem('selectedTab') || 1;
+      switchTab(selectedTab);
     });
   </script>
 </body>

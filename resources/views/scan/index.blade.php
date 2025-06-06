@@ -127,7 +127,7 @@
             <select id="cameraSelect" class="flex-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
               <option value="">-- Pilih Kamera --</option>
             </select>
-            <button onclick="startScan()" class="action-btn bg-blue-600 text-white hover:bg-blue-700">
+            <button onclick="startScan()" class="action-btn bg-amber-500 text-white ">
               <i class="fas fa-play"></i>
               <span class="action-text">Mulai Scan</span>
             </button>

@@ -62,7 +62,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </a>
-        <h1 class="text-lg sm:text-xl font-bold text-gray-800">User Management</h1>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Kelola Anggota</h1>
       </div>
     </div>
   </header>
@@ -138,7 +138,7 @@
 
   <!-- Floating Add Button -->
   <a href="{{ route('users.create') }}" 
-     class="floating-btn fixed bottom-5 right-5 bg-blue-600 text-white rounded-full p-4 hover:bg-blue-700 transition duration-200"
+     class="floating-btn fixed bottom-5 right-5 bg-amber-500 text-white rounded-full p-4 hover:bg-amber-700 transition duration-200"
      title="Add User">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <line x1="12" y1="5" x2="12" y2="19"></line>

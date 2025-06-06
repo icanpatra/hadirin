@@ -112,7 +112,7 @@
     <div class="bg-white rounded-lg shadow p-6 mb-8">
       <form action="{{ route('generate.id.process') }}" method="POST">
         @csrf
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center gap-2">
+        <button type="submit" class="bg-amber-500 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center gap-2">
           <i class="fas fa-qrcode"></i>
           Generate ID Sekarang
         </button>

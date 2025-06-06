@@ -33,7 +33,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </a>
-        <h1 class="text-lg sm:text-xl font-bold text-gray-800">User Management</h1>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Kelola Anggota</h1>
       </div>
     </div>
   </header>
@@ -43,17 +43,16 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
       <div>
-        <h2 class="text-2xl font-bold text-gray-800">Create New User</h2>
-        <p class="text-sm text-gray-600">Add a new user to the system</p>
+        <h2 class="text-2xl font-bold text-gray-800">Tambah Anggota</h2>
       </div>
     </div>
 
     <!-- Create Form Card -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
       <!-- Card Header -->
-      <div class="px-6 py-4 border-b bg-gradient-to-r from-blue-600 to-blue-700">
+      <div class="px-6 py-4 border-b bg-amber-500">
         <h3 class="text-lg font-semibold text-white">
-          <i class="fas fa-user-plus mr-2"></i>User Information
+          <i class="fas fa-user-plus mr-2"></i>
         </h3>
       </div>
 
@@ -89,7 +88,7 @@
           <!-- Name Field -->
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
-              Full Name <span class="text-red-500">*</span>
+              Nama Lengkap <span class="text-red-500">*</span>
             </label>
             <div class="relative rounded-md shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -110,7 +109,7 @@
           <!-- Email Field -->
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-              Email Address <span class="text-red-500">*</span>
+              Email  <span class="text-red-500">*</span>
             </label>
             <div class="relative rounded-md shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -142,9 +141,9 @@
                 id="gender"
                 class="form-select block w-full pl-10 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="">-- Select Gender --</option>
-                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
+                <option value="">Gender</option>
+                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Laki Laki</option>
+                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Perempuan</option>
               </select>
             </div>
           </div>
@@ -159,9 +158,9 @@
             </a>
             <button 
               type="submit"
-              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              <i class="fas fa-save mr-2"></i> Create User
+              <i class="fas fa-save mr-2"></i> tambah
             </button>
           </div>
         </form>
