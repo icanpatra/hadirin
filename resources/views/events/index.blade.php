@@ -55,7 +55,7 @@
         <a href="{{ url('/') }}" class="text-gray-600 hover:text-gray-900 transition-colors">
           <i class="fas fa-arrow-left text-lg"></i>
         </a>
-        <h1 class="text-lg sm:text-xl font-bold text-gray-800">Event Management</h1>
+        <h1 class="text-lg sm:text-xl font-bold text-gray-800">kegiatan</h1>
       </div>
     </div>
   </header>

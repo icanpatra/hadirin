@@ -9,7 +9,7 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 
   <div class="bg-white rounded-lg shadow p-6 w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-6 text-gray-800">Tambah Event</h1>
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Tambah kegiatan</h1>
 
     @if ($errors->any())
       <div class="mb-4 p-3 bg-red-100 text-red-700 rounded">

@@ -9,7 +9,7 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
 
   <div class="bg-white rounded-lg shadow p-6 w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-6 text-gray-800">Edit Event</h1>
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Edit kegiatan</h1>
 
     @if ($errors->any())
       <div class="mb-4 p-3 bg-red-100 text-red-700 rounded">
@@ -42,7 +42,7 @@
       <div class="flex justify-between items-center">
         <a href="{{ route('events.index') }}" class="text-gray-600 hover:underline">Batal</a>
         <button type="submit" 
-                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Update</button>
+                class="bg-amber-500 text-white px-4 py-2 rounded  transition">Update</button>
       </div>
     </form>
   </div>
