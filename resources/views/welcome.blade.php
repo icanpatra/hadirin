@@ -196,7 +196,7 @@
     <!-- Prints Tab - Improved -->
     <div id="tab2" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 transition-opacity duration-300">
       <!-- Rectangle Card 1 -->
-      <a href="#" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
+      <a href="{{ route('cetak.kehadiran.harian') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
         <div class="h-full p-6 flex flex-col items-center justify-center">
           <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
             <i data-feather="calendar" class="w-8 h-8 text-blue-800"></i>
@@ -207,7 +207,7 @@
       </a>
       
       <!-- Rectangle Card 2 -->
-      <a href="#" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
+      <a href="{{ route('cetak.kehadiran.bulanan') }}" class="card bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group overflow-hidden border border-gray-100 animate-fade-in animate-slide-up">
         <div class="h-full p-6 flex flex-col items-center justify-center">
           <div class="w-14 h-14 rounded-full bg-blue-50 mb-4 flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-200">
             <i data-feather="calendar" class="w-8 h-8 text-blue-800"></i>

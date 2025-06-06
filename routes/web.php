@@ -10,6 +10,10 @@ use App\Http\Controllers\BulkPrintController;
 use App\Http\Controllers\PresenceController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/cetak/kehadiran/harian', [PresenceController::class, 'cetakHarian'])->name('cetak.kehadiran.harian');
+Route::get('/cetak/kehadiran/bulanan', [PresenceController::class, 'cetakBulanan'])->name('cetak.kehadiran.bulanan');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
