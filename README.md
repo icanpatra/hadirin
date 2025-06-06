@@ -21,6 +21,13 @@ Hadirin adalah aplikasi berbasis web yang dibuat dengan Laravel untuk mengelola 
 - **Frontend:** Blade Template, TailwindCSS
 
 ---
+## 📸 Tampilan Antarmuka
+
+### Halaman Dashboard
+![Halaman Utama](screenshots/1.png)
+
+
+![Kelola  Anggota](screenshots/4.png)
 
 ## 🚀 Instalasi
 
